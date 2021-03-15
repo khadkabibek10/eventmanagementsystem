@@ -1,0 +1,113 @@
+﻿@model EventManagement.ViewModels.SearchViewModel
+
+
+
+
+<style>
+    .event {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .event td, .event th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .event tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .event tr:hover {
+            background-color: #ddd;
+        }
+
+        .event th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+</style>
+<div style="height:10px;"></div>
+<form method="post" action="@Url.Action("Search", "Event")">
+    <div id="All">
+        <div class="row">
+
+
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.InputText, new
+                {
+                    @class = "form-control",
+                    @id = "eventname",
+                    @placeholder = "Type name here"
+                })
+            </div>
+            <button type="submit">Search</button>
+
+
+
+        </div>
+        <br />
+
+        <table class="event">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                <tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.AllEvents.Count(); i++)
+
+                {
+                    var all = @Model.AllEvents[i];
+    <tr>
+        <td>
+            @all.Name
+        </td>
+        <td>
+            @all.City
+        </td>
+        <td>
+            @all.CategoryName
+        </td>
+        <td>
+            @all.Status
+        </td>
+
+    </tr>
+}
+            </tbody>
+
+
+        </table>
+    </div>
+</form>
+
+<script>function openTab(evt, eventType) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+
+        document.getElementById(eventType).style.display = "block";
+        evt.currentTarget.className += " active";
+    }</script>

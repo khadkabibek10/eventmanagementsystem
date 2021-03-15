@@ -1,0 +1,212 @@
+﻿@model EventManagement.ViewModels.EventViewModel
+
+
+
+<div style="height:10px;"></div>
+
+<h4>Edit Event</h4>
+<hr>
+
+<div class="float-right"> <a href="@Url.Action("Index", "Event" , new { id=0 })">Back to Home</a> </div>
+
+
+
+<div class="container">
+    <form method="post" action="@Url.Action("EditEvent", "Event")">
+
+        @if (!string.IsNullOrEmpty(ViewBag.DisplayMessage))
+        {
+            <div class="alert alert-success" role="alert">@ViewBag.DisplayMessage</div>
+        }
+        <span class="text-danger">@Html.ValidationSummary(true)</span>
+
+        <div class="row" style="display:none">
+
+            <div class="col-md-3"> <label for="eventId">Event Id</label></div>
+            <div class="col-md-1">
+                @Html.TextBoxFor(m => m.EventId, new
+    {
+    @class = "form-control",
+    @id = "eventId",
+    @placeholder = "Event Name",
+    @readonly = true
+    })
+            </div>
+        </div>
+        <div style="height:30px;"></div>
+
+        <div class="row">
+
+            <div class="col-md-3"><label for="eventname">Event Name</label></div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.Name, new
+                        {
+                        @class = "form-control",
+                        @id = "eventname",
+                        @placeholder = "Event Name"
+                        })
+                <span class="error"> @Html.ValidationMessageFor(x => x.Name)</span>
+
+            </div>
+
+
+
+        </div>
+        <div style="height:10px;"></div>
+
+        <div class="row">
+
+            <div class="col-md-3"><label for="category">Category</label></div>
+            <div class="col-md-6">
+                @Html.DropDownListFor(m => m.CategoryId,
+                          new SelectList(Model.Categories, "Value", "Text", Model.CategoryId), "--Select--",
+                          new { @class = "form-control" })
+                <span class="error"> @Html.ValidationMessageFor(x => x.CategoryId)</span>
+
+            </div>
+
+        </div>
+
+        <div style="height:10px;"></div>
+        <div class="row">
+
+            <div class="col-md-3"><label for="organizer">Organizer</label></div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.Organizer, new
+                        {
+                        @class = "form-control",
+                        @id = "organizer",
+                        @placeholder = "Organizer"
+                        })
+            </div>
+
+        </div>
+
+
+        <div style="height:10px;"></div>
+        <div class="row">
+
+            <div class="col-md-3"><label for="addressline1">Address Line 1</label></div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Location.Addressline1, new
+                        {
+                        @class = "form-control",
+                        @id = "addressline1",
+                        @placeholder = "Address Line 1"
+                        })
+
+            </div>
+            <div class="col-md-3"><label for="line2">Address Line 2        </label></div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.Location.Line2, new
+                                {
+                               @class = "form-control",
+                               @id = "line2",
+                               @placeholder = "Address Line 2"
+                            })
+            </div>
+
+
+        </div>
+        <div style="height:10px;"></div>
+        <div class="row">
+            <div class="col-md-3"> <label for="city">City</label></div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.Location.City, new
+                        {
+                        @class = "form-control",
+                        @id = "city",
+                        @placeholder = "City"
+                        })
+            </div>
+            <div class="col-md-1"><label for="state">State</label></div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.Location.State, new
+                {
+               @class = "form-control",
+               @id = "state",
+               @placeholder = "State"
+           })
+            </div>
+            <div class="col-md-2"><label for="zipcode">Zip Code</label></div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(m => m.Location.ZipCode, new
+    {
+    @class = "form-control",
+    @id = "zipcode",
+    @placeholder = "Zip Code"
+    })
+                <span class="error"> @Html.ValidationMessageFor(x => x.Location.ZipCode)</span>
+
+
+            </div>
+
+
+        </div>
+        <div style="height:10px;"></div>
+        <div class="row">
+
+            <div class="col-md-3"><label for="description">Brief Description</label></div>
+            <div class="col-md-6">
+                @Html.TextAreaFor(m => m.BriefDescription, new
+          {
+         @class = "form-control",
+         @id = "description",
+         @placeholder = "Brief Description"
+     })
+
+            </div>
+
+        </div>
+        <div style="height:10px;"></div>
+
+        <div class="row">
+
+            <div class="col-md-3"> <label for="datetime">Date Time</label></div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.Datetime, new
+           {
+               @class = "form-control datepicker",
+               @id = "DatetTime",
+               @placeholder = "MM/DD/YYYY hh:mm",
+               @data_provider = "datepicker"
+           })
+            </div>
+
+        </div>
+
+        <div style="height:10px;"></div>
+        <div class="row">
+
+            <div class="col-md-3"> <label for="category">Status</label></div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(m => m.Status, new SelectList(Model.Statuslist, "Text", "Text", Model.Status), new { @class = "form-control" })
+            </div>
+
+
+        </div>
+        <div style="height:10px;"></div>
+        <div class="row float-right">
+            <div class="col-md-2">
+                <button type="submit" style="text-align:center" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+@section Scripts
+{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
+
+    <script>$(function () {
+
+            $('.datepicker').datetimepicker();
+        });</script>
+}

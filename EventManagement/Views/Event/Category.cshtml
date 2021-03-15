@@ -1,0 +1,16 @@
+﻿@model List<EventManagement.ViewModels.CategoryViewModel>
+
+    <div style="height:10px;"></div>
+    <div class="container"><h3>Categories</h3></div>
+<hr />
+
+    <ul>
+        @foreach (var name in Model)
+        {
+
+            <li>
+                <a href="@Url.Action("Index", "Event" , new { id=@name.Id })">@name.CatName</a>
+            </li>
+        }
+    </ul>
+

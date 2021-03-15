@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/bibekkhadka/Documents/Future/C# Bootcamp/MiniProject/EventManagement/EventManagement/EventManagement.csproj": {}
+  },
+  "projects": {
+    "/Users/bibekkhadka/Documents/Future/C# Bootcamp/MiniProject/EventManagement/EventManagement/EventManagement.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/bibekkhadka/Documents/Future/C# Bootcamp/MiniProject/EventManagement/EventManagement/EventManagement.csproj",
+        "projectName": "EventManagement",
+        "projectPath": "/Users/bibekkhadka/Documents/Future/C# Bootcamp/MiniProject/EventManagement/EventManagement/EventManagement.csproj",
+        "packagesPath": "/Users/bibekkhadka/.nuget/packages/",
+        "outputPath": "/Users/bibekkhadka/Documents/Future/C# Bootcamp/MiniProject/EventManagement/EventManagement/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/bibekkhadka/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
+            "SweetAlert": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "jQuery-datetimepicker": {
+              "target": "Package",
+              "version": "[2.4.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
